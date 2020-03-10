@@ -30,10 +30,9 @@ const WorkoutSchema = new Schema({
         type: Date,
         default: Date.now()
     },
-    exersices: [
+    exercises: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Workout"
+        type: String
       }
     ]
 });
