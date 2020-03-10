@@ -5,31 +5,26 @@ module.exports = app => {
         //mongoose query
         db.Workout.find({})
             .then(data => {
-                console.log(data)
                 res.json(data);
             })
     });
 
     app.post('/api/workouts', (req, res) => {
         //mongoose query
-        if (req.body === {}) {
-            res.json({});
-        }
-        // db.Workout.create(req.body, (err, data) => {
-        //     if (err) throw err;
-        //     res.json(data);
-        // })
+        db.Workout.create(req.body, (err, data) => {
+            if (err) throw err;
+            res.json(data);
+        })
     });
 
-    // app.get("/api/workouts/:id", (req, res) => {
-    //     //mongoose query
-    //     const id = req.params.id;
-    //     const { body } = req.body;
-    //     db.Workout.create(body)
-    //         .then(data => {
-    //             res.json(data);
-    //         })
-    //});
+    app.put("/api/workouts/:id", (req, res) => {
+        //mongoose query
+        const id = req.params.id;
+        db.Workout.findOneAndUpdate({ _id: id } ,{ $push: { exercise: id } }, { new: true } )
+            .then(data => {
+                res.json(data);
+            })
+    });
 
     // app.get('api/workout', (req, res) => {
     //     //mongoose query

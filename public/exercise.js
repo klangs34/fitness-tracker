@@ -128,6 +128,8 @@ function handleToastAnimationEnd() {
 }
 
 function clearInputs() {
+    addButton.setAttribute("disabled", true);
+  completeButton.setAttribute("disabled", true);
   cardioNameInput.value = "";
   nameInput.value = "";
   setsInput.value = "";
