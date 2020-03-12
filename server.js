@@ -14,7 +14,10 @@ const mongoose = require("mongoose");
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 
 //static routes
 app.use(express.static("public"));
