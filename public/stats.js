@@ -191,10 +191,10 @@ function duration(data) {
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      durations.push(exercise.duration);
+      var newExercise = JSON.parse(exercise)
+      durations.push(newExercise.duration);
     });
   });
-
   return durations;
 }
 
@@ -203,7 +203,8 @@ function calculateTotalWeight(data) {
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      total.push(exercise.weight);
+      var newExercise = JSON.parse(exercise)
+      total.push(newExercise.weight);
     });
   });
 
@@ -215,7 +216,8 @@ function workoutNames(data) {
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      workouts.push(exercise.name);
+      var newExercise = JSON.parse(exercise)
+      workouts.push(newExercise.name);
     });
   });
   
